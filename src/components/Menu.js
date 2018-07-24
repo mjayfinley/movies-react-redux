@@ -6,8 +6,7 @@ export class Menu extends Component {
     return(
       <div id="menu">
         <div><NavLink exact to = '/'>Home</NavLink></div>
-        <div><NavLink to = '/addmovie'>Add Movie</NavLink></div>
-      
+
       </div>
     )
   }

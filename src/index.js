@@ -5,7 +5,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import MovieList from './components/MovieList'
-import AddMovie from './components/AddMovie'
 import {createStore} from 'redux'
 import reducer from './store/reducer'
 import {Provider} from 'react-redux'
@@ -18,7 +17,6 @@ ReactDOM.render(
       <App>
         <Switch>
           <Route exact path = '/' component = {MovieList} />
-          <Route path = '/addmovie' component = {AddMovie} />
         </Switch>
       </App>
     </Provider>
