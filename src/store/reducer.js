@@ -4,12 +4,8 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 
-  if(action.type == "ADD_MOVIE") {
-    return {
-      ...state,
-      movies : state.movies.concat(action.payload)
-    }
-  }
+
+
 
   return state
 

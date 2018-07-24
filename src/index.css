@@ -9,3 +9,22 @@ img {
   height: 200px;
   width: auto;
 }
+
+#menu {
+  background-color: black;
+  color: white;
+  display: flex;
+}
+
+#menu div {
+  padding: 10px;
+}
+
+.active {
+  color: red;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
