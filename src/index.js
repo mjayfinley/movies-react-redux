@@ -4,19 +4,34 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import MovieList from './components/MovieList'
-import {createStore} from 'redux'
-import reducer from './store/reducer'
+import Movies from './components/Movies'
+import Cart from './components/Cart'
+import AddMovie from './components/AddMovie'
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
+import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
+import movie from './store/reducers/movie'
+import cart from './store/reducers/cart'
 
-const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
+
+const rootReducer = combineReducers({
+  movieReducer : movie,
+  cartReducer : cart,
+})
+
+const store = createStore(rootReducer,composeEnhancers(applyMiddleware(thunk))
+)
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store = {store}>
       <App>
         <Switch>
-          <Route exact path = '/' component = {MovieList} />
+          <Route exact path = '/' component = {Movies} />
+          <Route path = '/addmovie' component = {AddMovie} />
+          <Route path = '/cart' component = {Cart} />
         </Switch>
       </App>
     </Provider>
