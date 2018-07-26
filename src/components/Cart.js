@@ -12,7 +12,7 @@ export class Cart extends Component {
         <h2>{movie.title}</h2>
         <img src={movie.poster} alt={movie.title} />
         <p>${movie.price}</p>
-        <button onClick={() => {this.props.deleteMovie(movie)}}>Delete Movie</button>
+        <button onClick={() => {this.props.onDeleteMovie(movie)}}>Delete Movie</button>
         </li>
       )
     })
@@ -38,7 +38,6 @@ export class Cart extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    movies : state.movieReducer.movies,
     cart : state.cartReducer.cart,
     total : state.cartReducer.total
   }
@@ -47,7 +46,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteMovie : (movie) => {dispatch({type : "DELETE_MOVIE", payload: movie})},
+    onDeleteMovie : (movie) => dispatch(actionCreators.deleteMovie(movie)),
 
   }
 }

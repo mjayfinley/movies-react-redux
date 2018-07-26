@@ -13,3 +13,10 @@ export const addMovieToCart = (movie) => {
     movie : movie
   }
 }
+
+export const deleteMovie = (movie) => {
+  return {
+    type : actionTypes.DELETE_MOVIE,
+    movie : movie
+  }
+}
