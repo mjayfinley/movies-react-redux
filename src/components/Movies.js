@@ -4,14 +4,19 @@ import * as actionCreators from '../store/actionCreators'
 
 class Movies extends Component {
 
+  componentDidMount() {
+    //this.props.onPopulateMovies()
+    this.props.onPopulateMovies()
+  }
+
   render() {
 
-    let movieList = this.props.movies.map((movie, index) => {
+    let movieList = this.props.movies.map((movie) => {
       return (
-        <li key={index}>
-        <h2>{movie.title}</h2>
-        <img src={movie.poster} alt={movie.title} />
-        <p>${movie.price}</p>
+        <li key={movie.imdbID}>
+        <h2>{movie.Title}</h2>
+        <img src={movie.Poster} alt={movie.Title} />
+        <p>${movie.Year}</p>
         <button onClick={() => {this.props.addMovieToCart(movie)}}>Add to Cart</button>
         </li>
       )
@@ -38,6 +43,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    onPopulateMovies : () => dispatch(actionCreators.populateMoviesUsingThunk()),
+  //  onPopulateMovies : () => dispatch(actionCreators.populateMoviesUsingThunk()),
     addMovieToCart : (movie) => dispatch(actionCreators.addMovieToCart(movie))
   }
 }

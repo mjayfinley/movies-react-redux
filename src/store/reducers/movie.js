@@ -12,6 +12,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         movies : state.movies.concat(action.movie)
       }
+
+    case actionTypes.POPULATE_MOVIES:
+      return {
+        ...state,
+        movies : action.movies
+      }
   }
 
   return state

@@ -12,14 +12,14 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         cart : state.cart.concat(action.movie),
-        total : state.total += parseInt(action.movie.price)
+        total : state.total += parseInt(action.movie.Year)
       }
 
     case actionTypes.DELETE_MOVIE:
       return {
         ...state,
         cart : state.cart.filter(movie => movie !== action.movie),
-        total : state.total -= parseInt(action.movie.price)
+        total : state.total -= parseInt(action.movie.Year)
       }
   }
 

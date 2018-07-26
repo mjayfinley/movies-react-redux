@@ -14,15 +14,15 @@ import movie from './store/reducers/movie'
 import cart from './store/reducers/cart'
 
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   movieReducer : movie,
   cartReducer : cart,
 })
 
-const store = createStore(rootReducer,composeEnhancers(applyMiddleware(thunk))
-)
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)
+))
 
 ReactDOM.render(
   <BrowserRouter>

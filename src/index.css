@@ -28,3 +28,27 @@ a {
   text-decoration: none;
   color: white;
 }
+
+li {
+  list-style: none;
+  border-style: solid;
+  text-align: center;
+
+}
+
+
+#movies {
+  display: flex;
+}
+
+#movies div {
+  position: relative;
+  margin: 50px;
+  padding: 10px;
+}
+
+#movies h1 {
+  position: absolute;
+  justify-content: center;
+
+}

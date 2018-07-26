@@ -20,3 +20,22 @@ export const deleteMovie = (movie) => {
     movie : movie
   }
 }
+
+export const populateMovies = (movies) => {
+  return {
+    type : actionTypes.POPULATE_MOVIES,
+    movies : movies
+  }
+}
+
+export const populateMoviesUsingThunk = () => {
+
+  return (dispatch) => {
+
+    fetch("http://www.omdbapi.com/?s=batman&apikey=b70d5171")
+    .then(response => response.json())
+    .then((json) => {
+      dispatch({type : actionTypes.POPULATE_MOVIES, movies : json.Search})
+    })
+  }
+}

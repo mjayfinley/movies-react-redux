@@ -6,12 +6,12 @@ import * as actionCreators from '../store/actionCreators'
 export class Cart extends Component {
   render() {
 
-    let cartList = this.props.cart.map((movie, index) => {
+    let cartList = this.props.cart.map((movie) => {
       return (
-        <li key={index}>
-        <h2>{movie.title}</h2>
-        <img src={movie.poster} alt={movie.title} />
-        <p>${movie.price}</p>
+        <li key={movie.imdbID}>
+        <h2>{movie.Title}</h2>
+        <img src={movie.Poster} alt={movie.Title} />
+        <p>${movie.Year}</p>
         <button onClick={() => {this.props.onDeleteMovie(movie)}}>Delete Movie</button>
         </li>
       )
